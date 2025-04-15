@@ -26,12 +26,12 @@ export class TransformationObject {
         glm.mat4.translate(this.translationMatrix, this.translationMatrix, translateVec);
     }
 
-    // T * R * S
+    // R * T * S
     getTransformationMatrix() {
         const modelMatrix = glm.mat4.create();
 
-        glm.mat4.multiply(modelMatrix, this.rotationMatrix, this.scalingMatrix);
-        glm.mat4.multiply(modelMatrix, this.translationMatrix, modelMatrix);
+        glm.mat4.multiply(modelMatrix, this.translationMatrix, this.scalingMatrix);
+        glm.mat4.multiply(modelMatrix, this.rotationMatrix, modelMatrix);
 
         return modelMatrix;
     }

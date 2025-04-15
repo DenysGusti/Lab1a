@@ -5,6 +5,18 @@ import {InputHandler} from "./input_handler.js";
 import {TransformationObject} from "./transformation_object.js";
 import * as glm from './gl-matrix/index.js';
 
+function printMat4(m) {
+    for (let i = 0; i < 4; i++) {
+        const row = [
+            m[i],       // column 0
+            m[i + 4],   // column 1
+            m[i + 8],   // column 2
+            m[i + 12]   // column 3
+        ];
+        console.log(row.map(n => n.toFixed(2)).join('\t'));
+    }
+}
+
 async function main() {
     const canvas = document.getElementById("glCanvas");
     const gl = canvas.getContext("webgl2");
