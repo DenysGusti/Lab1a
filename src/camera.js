@@ -1,7 +1,7 @@
 import * as glm from './gl-matrix/index.js';
-import {TransformationObject} from "./transformation_object.js";
+import {GlobalTransformationObject} from "./transformation_object/global_transformation_object.js";
 
-export class Camera extends TransformationObject {
+export class Camera extends GlobalTransformationObject {
     defaultViewMatrix = glm.mat4.create();
 
     constructor(z) {
